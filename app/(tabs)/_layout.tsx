@@ -28,7 +28,7 @@ export default function TabLayout() {
         options={{
           title: 'Recipes',
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'information-circle' : 'information-circle-outline'} color={color} />
+            <TabBarIcon name={focused ? 'star' : 'star-outline'} color={color} />
           ),
         }}
       />
