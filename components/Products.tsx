@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import React, { Image, StyleSheet, Text, View } from "react-native";
 import axios from "axios";
 import { ScrollView } from "react-native";
+import { ProductsInterface } from './Interfaces/ProductsInterface';
 
 export default function Products() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<ProductsInterface[]>([]);
   const getData = () => {
     axios
       .get("https://dummyjson.com/products")
