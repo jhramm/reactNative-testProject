@@ -436,7 +436,7 @@ export default function AllRecipe() {
                     marginBottom: 20,
                     backgroundColor: "lightblue",
                     padding: 10,
-                    borderRadius: 5,
+                    borderRadius: 20,
                   }}
                 >
                   <Text key={item.id} style={{ textAlign: "center" }}>
