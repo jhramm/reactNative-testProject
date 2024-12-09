@@ -26,7 +26,16 @@ export default function TabLayout() {
       <Tabs.Screen
         name="recipe"
         options={{
-          title: 'Recipes',
+          title: 'Recipe',
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon name={focused ? 'star' : 'star-outline'} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="newRecipe"
+        options={{
+          title: 'New Recipes',
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name={focused ? 'star' : 'star-outline'} color={color} />
           ),

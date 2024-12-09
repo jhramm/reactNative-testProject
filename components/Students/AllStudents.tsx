@@ -53,7 +53,7 @@ export default function AllStudents() {
       grade: studentGrade,
     };
     axios
-      .post("https://pprc-backend.onrender.com/api/students", payload)
+      .post("https://pprc-backend.onrender.com/api/students/", payload)
       .then((res) => {
         console.log(res);
       })
@@ -70,7 +70,19 @@ export default function AllStudents() {
       grade: updateStudentGrade,
     };
     axios
-      .patch("https://pprc-backend.onrender.com/api/students"+updateStudentId, payload)
+      .patch("https://pprc-backend.onrender.com/api/students/"+ updateStudentId, payload)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    forceUpdate();
+  };
+  const deleteStudent = (id: any) => {
+ 
+    axios
+      .delete("https://pprc-backend.onrender.com/api/students/"+ id)
       .then((res) => {
         console.log(res);
       })
@@ -261,9 +273,9 @@ export default function AllStudents() {
               }}
               placeholder="Student Age: "
               onChangeText={setUpdateStudentAge}
-              value={updateStudentAge}
+              value={updateStudentAge.toString()}
             />
-          </View>
+          </View>r
 
           <View>
             <Text style={{ color: "white", marginBottom: 10 }}>
@@ -326,7 +338,7 @@ export default function AllStudents() {
             flexWrap: "wrap",
             gap: 20,
             flexDirection: "row",
-            height: 600,
+            height: 1400,
           }}
         >
           {students.map((item, index) => {
@@ -366,6 +378,13 @@ export default function AllStudents() {
                 }}>
                   <View style={{backgroundColor: "#333", paddingVertical: 10, marginTop: 10, borderRadius: 8}}>
                     <Text style={{color: "white", textAlign: "center"}}>Edit</Text>
+                  </View>
+                </Pressable>
+                <Pressable onPress={()=> {
+                  deleteStudent(item._id);
+                }}>
+                  <View style={{backgroundColor: "red", paddingVertical: 10, marginTop: 10, borderRadius: 8}}>
+                    <Text style={{color: "white", textAlign: "center"}}>Delete</Text>
                   </View>
                 </Pressable>
               </View>
